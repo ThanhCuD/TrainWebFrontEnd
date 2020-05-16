@@ -2,8 +2,9 @@
 <div>
   <ul v-if="posts && posts.length">
     <li v-for="post of posts" :key="post.id">
-      <p><strong>{{post.title}}</strong></p>
-      <p>{{post.body}}</p>
+      <p><strong>{{post.date}}</strong></p>
+      <p>{{post.temperatureC}}</p>
+      <p>{{post.summary}}</p>
     </li>
   </ul>
 
@@ -28,7 +29,7 @@ export default {
 
   // lấy dữ liệu khi component được tạo thành công
   created() {
-    axios.get(`http://jsonplaceholder.typicode.com/posts`)
+    axios.get(`https://localhost:44351/weatherforecast`)
     .then(response => {
       this.posts = response.data
     })
